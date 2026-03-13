@@ -6,12 +6,11 @@ import { useRouter } from 'next/navigation'
 import { FighterSprite } from '@/components/game/fighter-sprite'
 import { Github, Zap, Shield, Star, Brain } from 'lucide-react'
 import { GitClashLogo } from '@/components/ui/logo'
-import { TwitterXIcon, BankrIcon } from '@/components/ui/social-icons'
 
 export default function AuthPage() {
   const supabase = createClient()
   const router = useRouter()
-  const [loading, setLoading] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
   const [checking, setChecking] = useState(true)
 
   useEffect(() => {
@@ -22,7 +21,7 @@ export default function AuthPage() {
   }, [])
 
   async function handleGitHubLogin() {
-    setLoading('github')
+    setLoading(true)
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
       options: {
@@ -30,16 +29,7 @@ export default function AuthPage() {
         scopes: 'read:user public_repo',
       },
     })
-    if (error) { console.error(error); setLoading(null) }
-  }
-
-  async function handleTwitterLogin() {
-    setLoading('twitter')
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'twitter',
-      options: { redirectTo: `${window.location.origin}/auth/callback` },
-    })
-    if (error) { console.error(error); setLoading(null) }
+    if (error) { console.error(error); setLoading(false) }
   }
 
   if (checking) {
@@ -71,62 +61,18 @@ export default function AuthPage() {
         </div>
 
         {/* Login panel */}
-        <PixelPanel glowColor="#e81010" title="Choose Login">
-          <div className="space-y-3">
-
-            {/* GitHub — primary, reads code stats */}
-            <PixelButton
-              variant="primary" size="lg" className="w-full"
-              onClick={handleGitHubLogin}
-              disabled={loading !== null}
-            >
-              <Github className="w-4 h-4 inline mr-2" />
-              {loading === 'github' ? 'Connecting...' : 'Login with GitHub'}
-            </PixelButton>
-            <p className="font-mono text-[10px] text-iron-600 text-center -mt-1">
-              Reads commits, repos, stars → builds your fighter stats
-            </p>
-
-            {/* Divider */}
-            <div className="flex items-center gap-2 py-1">
-              <div className="flex-1 h-px bg-iron-800"/>
-              <span className="font-pixel text-[9px] text-iron-700">OR</span>
-              <div className="flex-1 h-px bg-iron-800"/>
-            </div>
-
-            {/* Twitter/X */}
-            <PixelButton
-              variant="secondary" size="lg" className="w-full"
-              onClick={handleTwitterLogin}
-              disabled={loading !== null}
-            >
-              <TwitterXIcon className="w-4 h-4 inline mr-2" />
-              {loading === 'twitter' ? 'Connecting...' : 'Login with X / Twitter'}
-            </PixelButton>
-            <p className="font-mono text-[10px] text-iron-600 text-center -mt-1">
-              Fighter generated from follower + activity signals
-            </p>
-
-            {/* Bankr — external link */}
-            <a
-              href="https://bankr.bot"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <PixelButton
-                variant="ghost" size="lg" className="w-full"
-                disabled={loading !== null}
-              >
-                <BankrIcon className="w-4 h-4 inline mr-2" />
-                Open Bankr.bot
-              </PixelButton>
-            </a>
-            <p className="font-mono text-[10px] text-iron-600 text-center -mt-1">
-              Trade your fighter card on Bankr
-            </p>
-
-          </div>
+        <PixelPanel glowColor="#e81010" title="Connect GitHub">
+          <PixelButton
+            variant="primary" size="lg" className="w-full"
+            onClick={handleGitHubLogin}
+            disabled={loading}
+          >
+            <Github className="w-4 h-4 inline mr-2" />
+            {loading ? 'Connecting...' : 'Login with GitHub'}
+          </PixelButton>
+          <p className="font-mono text-[10px] text-iron-600 text-center mt-2">
+            Only reads public data — no writes, ever
+          </p>
         </PixelPanel>
 
         {/* Stats preview */}
@@ -145,7 +91,7 @@ export default function AuthPage() {
         </PixelPanel>
 
         <p className="font-mono text-[10px] text-iron-700 text-center">
-          gitclash.fun · Only public data is read
+          gitclash.fun
         </p>
       </div>
     </main>

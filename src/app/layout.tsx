@@ -17,7 +17,7 @@ const monoFont = Share_Tech_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'GitClash',
+  title: 'GitClash — GitHub Auto-Battler',
   description: 'Connect your GitHub. Generate your fighter. Clash.',
   icons: { icon: '/favicon.ico' },
 }
