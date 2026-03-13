@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Dark background -->
+  <rect width="64" height="64" rx="8" fill="#0d0404"/>
+
+  <!-- Crossed swords pixel art -->
+  <!-- Left sword blade (top-left to center) -->
+  <rect x="8"  y="8"  width="4" height="4" fill="#ff2040"/>
+  <rect x="12" y="12" width="4" height="4" fill="#ff2040"/>
+  <rect x="16" y="16" width="4" height="4" fill="#ff2040"/>
+  <rect x="20" y="20" width="4" height="4" fill="#ff2040"/>
+  <rect x="24" y="24" width="4" height="4" fill="#ffcc00"/>
+  <!-- Left guard -->
+  <rect x="20" y="24" width="4" height="4" fill="#ffcc00"/>
+  <rect x="28" y="24" width="4" height="4" fill="#ffcc00"/>
+  <rect x="24" y="20" width="4" height="4" fill="#ffcc00"/>
+  <rect x="24" y="28" width="4" height="4" fill="#ffcc00"/>
+  <!-- Left handle -->
+  <rect x="28" y="28" width="4" height="4" fill="#a08060"/>
+  <rect x="32" y="32" width="4" height="4" fill="#a08060"/>
+  <rect x="36" y="36" width="4" height="4" fill="#a08060"/>
+  <rect x="40" y="40" width="4" height="4" fill="#806040"/>
+  <!-- Left pommel -->
+  <rect x="44" y="44" width="4" height="4" fill="#c0a070"/>
+  <rect x="48" y="48" width="4" height="4" fill="#c0a070"/>
+  <rect x="52" y="52" width="4" height="4" fill="#906030"/>
+
+  <!-- Right sword blade (top-right to center) -->
+  <rect x="52" y="8"  width="4" height="4" fill="#ff2040"/>
+  <rect x="48" y="12" width="4" height="4" fill="#ff2040"/>
+  <rect x="44" y="16" width="4" height="4" fill="#ff2040"/>
+  <rect x="40" y="20" width="4" height="4" fill="#ff2040"/>
+  <!-- Right guard -->
+  <rect x="32" y="24" width="4" height="4" fill="#ffcc00"/>
+  <rect x="36" y="24" width="4" height="4" fill="#ffcc00"/>
+  <rect x="36" y="20" width="4" height="4" fill="#ffcc00"/>
+  <rect x="36" y="28" width="4" height="4" fill="#ffcc00"/>
+  <!-- Right handle -->
+  <rect x="24" y="28" width="4" height="4" fill="#a08060"/>
+  <rect x="20" y="32" width="4" height="4" fill="#a08060"/>
+  <rect x="16" y="36" width="4" height="4" fill="#a08060"/>
+  <!-- Right pommel -->
+  <rect x="12" y="40" width="4" height="4" fill="#c0a070"/>
+  <rect x="8"  y="44" width="4" height="4" fill="#c0a070"/>
+  <rect x="4"  y="48" width="4" height="4" fill="#906030"/>
+
+  <!-- Center clash spark -->
+  <rect x="28" y="28" width="4" height="4" fill="#ffffff"/>
+  <rect x="30" y="26" width="4" height="2" fill="#ffcc00"/>
+  <rect x="30" y="36" width="4" height="2" fill="#ffcc00"/>
+  <rect x="26" y="30" width="2" height="4" fill="#ffcc00"/>
+  <rect x="36" y="30" width="2" height="4" fill="#ffcc00"/>
+
+  <!-- Red border glow hint -->
+  <rect width="64" height="64" rx="8" fill="none" stroke="#e81010" stroke-width="1.5" opacity="0.6"/>
+</svg>
